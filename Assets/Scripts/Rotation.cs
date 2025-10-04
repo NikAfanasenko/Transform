@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class Rotation : MonoBehaviour
 {
-    private Transform _cube;
+    private Transform _rotatableTransform;
 
     [SerializeField]
     private float _speed = 5.0f; 
 
     public void Awake()
     {
-        _cube = GetComponent<Transform>();
+        _rotatableTransform = GetComponent<Transform>();
     }
     
     public void Update()
     {
-        _cube.rotation *= Quaternion.Euler(0, _speed, 0);      
+        _rotatableTransform.rotation *= Quaternion.Euler(0, _speed, 0);
     }
 
 }

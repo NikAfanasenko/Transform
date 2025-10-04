@@ -5,15 +5,15 @@ public class Scaling : MonoBehaviour
     [SerializeField]
     private float _speed = 1f;
 
-    private Transform _capsule;
+    private Transform _scalableTransform;
 
     public void Awake()
     {
-        _capsule = GetComponent<Transform>();
+        _scalableTransform = GetComponent<Transform>();
     }
 
     public void Update()
     {
-        _capsule.localScale += new Vector3(1,1,1).normalized * Time.deltaTime * _speed ;
+        _scalableTransform.localScale += new Vector3(1,1,1).normalized * Time.deltaTime * _speed ;
     }
 }

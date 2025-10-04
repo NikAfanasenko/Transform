@@ -7,15 +7,15 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private float _speed = 1.0f;
 
-    private Transform _sphere;
+    private Transform _movableTransform;
 
     public void Awake()
     {
-        _sphere = GetComponent<Transform>();
+        _movableTransform = GetComponent<Transform>();
     }
 
     public void Update()
     {
-        _sphere.position = _sphere.position + Vector3.forward * _speed * Time.deltaTime; 
+        _movableTransform.position = _movableTransform.position + _movableTransform.rotation * Vector3.forward * _speed * Time.deltaTime;        
     }
 }
