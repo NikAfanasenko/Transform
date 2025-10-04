@@ -2,42 +2,28 @@ using UnityEngine;
 
 public class FunnyCube : MonoBehaviour
 {
-    private const int MinDegree = -5;
-    private const int MaxDegree = 5;
+    [SerializeField]
+    private float _speedScale = 1f;
 
-    private const int MinScaling = 1;
-    private const int MaxScaling = 2;
+    [SerializeField]
+    private float _speedRotation = 1f;
 
-    private int _directionScale = 1;
+    [SerializeField]
+    private float _speed = 1f;
 
     private Transform _cube;
-    private float _speed = 0.5f;
-
-    private float _speedScale = 1f;     
 
     public void Awake()
     {
-        _cube = GetComponent<Transform>();
+        _cube = GetComponent<Transform>();       
     }
 
     public void Update()
     {
-        Quaternion angle = Quaternion.Euler(0, Random.Range(MinDegree, MaxDegree), 0);
+        _cube.rotation *= Quaternion.Euler(0, _speedRotation, 0);
 
-        _cube.rotation *= angle;
+        _cube.position = _cube.position + _cube.rotation * Vector3.forward * _speed * Time.deltaTime;
 
-        _cube.position += new Vector3(Mathf.Sin(angle.eulerAngles.y), 0, Mathf.Cos(angle.eulerAngles.y)).normalized * _speed;
-
-        if (_cube.localScale.z > MaxScaling && _directionScale > 0)
-        {
-            _directionScale = (int)Vector3.back.z;
-        }
-
-        if (_cube.localScale.z < MinScaling && _directionScale < 0)
-        {
-            _directionScale = (int)Vector3.forward.z;
-        }
-
-        _cube.localScale += new Vector3(Time.deltaTime, Time.deltaTime, Time.deltaTime) * _speedScale * _directionScale;
+        _cube.localScale += new Vector3(1, 1, 1).normalized * Time.deltaTime * _speedScale;
     }
 }
