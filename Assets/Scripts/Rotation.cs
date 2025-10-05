@@ -7,6 +7,6 @@ public class Rotation : MonoBehaviour
 
     public void Update()
     {
-        gameObject.transform.rotation *= Quaternion.Euler(0, _speed, 0);
+        transform.rotation *= Quaternion.Euler(0, _speed, 0);
     }
 }

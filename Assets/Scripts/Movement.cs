@@ -7,6 +7,6 @@ public class Movement : MonoBehaviour
 
     public void Update()
     {
-        gameObject.transform.position = gameObject.transform.position + gameObject.transform.forward * _speed * Time.deltaTime;
+        transform.position = transform.position + transform.forward * _speed * Time.deltaTime;
     }
 }
