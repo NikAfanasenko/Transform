@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -9,9 +7,9 @@ public class Movement : MonoBehaviour
 
     private Transform _movableTransform;
 
-    public void Awake()
+    private void Awake()
     {
-        _movableTransform = GetComponent<Transform>();
+        _movableTransform = gameObject.transform; 
     }
 
     public void Update()
