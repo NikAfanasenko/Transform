@@ -3,17 +3,10 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField]
-    private float _speed = 1.0f;
-
-    private Transform _movableTransform;
-
-    private void Awake()
-    {
-        _movableTransform = gameObject.transform; 
-    }
+    private float _speed = 2f;
 
     public void Update()
     {
-        _movableTransform.position = _movableTransform.position + _movableTransform.rotation * Vector3.forward * _speed * Time.deltaTime;        
+        gameObject.transform.position = gameObject.transform.position + gameObject.transform.forward * _speed * Time.deltaTime;
     }
 }
